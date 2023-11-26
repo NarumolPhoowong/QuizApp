@@ -1,9 +1,31 @@
 body {
     margin: 0;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Josefin Sans', sans-serif !important;
     background-image: url(img/zauber.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     background-position: inherit;
+    opacity: 0.9;
+}
+
+.headline {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px !important; 
+    margin: 50px !important;
+    background-color: rgb(238,228,209);
+    font-weight: 700 !important;
+    border-radius: 10px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 25vh;
+    border-radius: 5px;
+    border: rgb(238,228,209) !important;
 }
