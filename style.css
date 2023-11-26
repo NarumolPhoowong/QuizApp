@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    background-image: url(img/zauber.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-position: inherit;
+}
