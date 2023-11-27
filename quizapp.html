@@ -19,24 +19,45 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="init()">
     <header class="headline">
         <h1>THE LORD OF THE RINGS - QUIZ</h1>
     </header>
 
     <div class="card-container">
-        <div class="card" style="width: 350px;">
-            <img src="..." class="card-img-top" alt="...">
+        <div class="card quiz-card ">
+            <img id="quizimage" src="..." class="card-img-top">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title" id="questiontext">Frage</h5>
+                <div class="card answer-box mb-2" onclick="answer('answer_1')">
+                    <div class="card-body" id="answer_1">
+                        Antwort
+                    </div>
+                </div>
+                <div class="card answer-box mb-2" onclick="answer('answer_2')">
+                    <div class="card-body" id="answer_2">
+                        Antwort
+                    </div>
+                </div>
+                <div class="card answer-box mb-2" onclick="answer('answer_3')">
+                    <div class="card-body" id="answer_3">
+                        Antwort
+                    </div>
+                </div>
+                <div class="card answer-box mb-2" onclick="answer('answer_4')">
+                    <div class="card-body" id="answer_4">
+                        Antwort
+                    </div>
+                </div>
+                <div class="question-footer">
+                    <span>
+                        <b>1</b> von <b id="all-questions">5</b> Fragen
+                    </span>
+                    <button onclick="nextQuestion()" class="btn btn-success" id="next-button" disabled>Nächste Frage</button>
+                </div>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-                <li class="list-group-item">A third item</li>
-            </ul>
         </div>
+    </div>
 </body>
 
 </html>

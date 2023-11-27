@@ -6,7 +6,6 @@ body {
     background-size: cover;
     height: 100vh;
     background-position: inherit;
-    opacity: 0.9;
 }
 
 .headline {
@@ -25,7 +24,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 25vh;
-    border-radius: 5px;
-    border: rgb(238,228,209) !important;
+}
+
+.quiz-card {
+    width: 45rem;
+    border: 1px solid rgb(238,228,209) !important;
+    border-radius: 5px !important;
+}
+
+.answer-box:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.05);
+}
+
+.question-footer {
+    border-top: 1px solid rgb(238,228,209);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+}
+
+.bg-success, .bg-danger {
+    color: white !important;
 }
