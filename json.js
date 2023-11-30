@@ -72,7 +72,7 @@ let questions = [
         "right_answer": 4
     },
     {
-        "image": "img/théoden.png",
+        "image": "img/theoden.png",
         "question": "Wer ist der König von Rohan?",
         "answer_1": "A) Aragorn",
         "answer_2": "B) Théoden",

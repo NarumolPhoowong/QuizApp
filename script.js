@@ -12,28 +12,41 @@ function init() {
 }
 
 function showQuestion() {
-    if (currentQuestion >= questions.length) { // Endscreen
-        document.getElementById('endScreen').style = '';
-        document.getElementById('questionBody').style = 'display: none';
-        document.getElementById('amount-of-questions').innerHTML = questions.length;
-        document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
-        document.getElementById('quiz-image').src = 'img/win.png';
-    } else { // Show Question
-        let question = questions[currentQuestion];
-        
-        let percent = (currentQuestion + 1) / questions.length;
-        percent = percent * 100;
-        document.getElementById('progress_bar').innerHTML = `${percent}%`;
-        document.getElementById('progress_bar').style = `width: ${percent}%`;
-
-        document.getElementById('quiz-image').src = question['image'];
-        document.getElementById('questiontext').innerHTML = question['question'];
-        document.getElementById('answer_1').innerHTML = question['answer_1'];
-        document.getElementById('answer_2').innerHTML = question['answer_2'];
-        document.getElementById('answer_3').innerHTML = question['answer_3'];
-        document.getElementById('answer_4').innerHTML = question['answer_4'];
-        document.getElementById('question-number').innerHTML = currentQuestion + 1;
+    if (gameOver()) {
+        showEndScreen();
+    } else {
+        updateQuestion();
     }
+}
+
+function updateQuestion() {
+    let question = questions[currentQuestion];
+    document.getElementById('quiz-image').src = question['image'];
+    document.getElementById('questiontext').innerHTML = question['question'];
+    document.getElementById('answer_1').innerHTML = question['answer_1'];
+    document.getElementById('answer_2').innerHTML = question['answer_2'];
+    document.getElementById('answer_3').innerHTML = question['answer_3'];
+    document.getElementById('answer_4').innerHTML = question['answer_4'];
+    document.getElementById('question-number').innerHTML = currentQuestion + 1;
+}
+
+function updateProgressBar() {
+    let percent = (currentQuestion + 1) / questions.length;
+    percent = percent * 100;
+    document.getElementById('progress_bar').innerHTML = `${percent}%`;
+    document.getElementById('progress_bar').style = `width: ${percent}%`;
+}
+
+function showEndScreen() {
+    document.getElementById('endScreen').style = '';
+    document.getElementById('questionBody').style = 'display: none';
+    document.getElementById('amount-of-questions').innerHTML = questions.length;
+    document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
+    document.getElementById('quiz-image').src = 'img/win.png';
+}
+
+function gameOver() {
+    return currentQuestion >= questions.length;
 }
 
 function answer(selection) {
@@ -45,11 +58,13 @@ function answer(selection) {
         if (selectedQuestionNumber == question['right_answer']) {
             document.getElementById(selection).parentNode.classList.add('bg-success');
             rightQuestions++;
+            updateProgressBar();
             answer_button = false;
 
         } else {
             document.getElementById(selection).parentNode.classList.add('bg-danger');
             document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+            updateProgressBar();
             answer_button = false;
         }
     }
@@ -76,6 +91,7 @@ function restartGame() {
     document.getElementById('quiz-image').src = 'img/J.R.R. Tolkien.png';
     document.getElementById('questionBody').style = '';
     document.getElementById('endScreen').style = 'display: none';
+    document.getElementById('progress_bar').style = `width: 0%`;
     rightQuestions = 0;
     currentQuestion = 0;
     init();
